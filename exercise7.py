@@ -23,6 +23,10 @@ def repairBay():
     global system_index
     global item_picked
 
+    if system_index == -1:
+        message = "{ 'detail': 'No damaged system detected, use /status to check systems'}"
+        return Response(message,status=400,mimetype='application/json')
+
     data = {
         'code': item_picked
     }
